@@ -19,12 +19,12 @@ type Mutation {
       password: String!
     ): AuthPaylode
 
-}
+    addPost(post: PostInput!): PostPaylode
+    updatePost(postId: ID!, post: PostInput): PostPaylode
 
-  type AuthPaylode {
-    userError: String
-    token: String
+
   }
+
 
 type Post {
   id: ID!
@@ -51,6 +51,22 @@ type Post {
     user: User!
 
   }
+
+
+  type PostPaylode {
+    userError: String
+    post: Post
+  }
+  type AuthPaylode {
+    userError: String
+    token: String
+  }
+
+  input PostInput {
+    title: String
+    content: String
+  }
+
 
   
 `;
